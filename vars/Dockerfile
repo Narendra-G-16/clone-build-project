@@ -1,9 +1,9 @@
-FROM ubuntu:22.04
+FROM openjdk:17
 
 WORKDIR /app
 
 COPY . .
 
-RUN echo "Building application inside Docker..."
+RUN javac code-file.groovy
 
-CMD ["echo", "Container started successfully"]
+CMD ["java", "App"]
