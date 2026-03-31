@@ -1,5 +1,17 @@
-public class App {
-    public static void main(String[] args) {
-        System.out.println("Hello from Jenkins Shared Library Project!");
+def call(Map config = [:]) {
+
+    stage('Clone') {
+        echo "Cloning repository..."
+        git url: config.repoUrl, branch: 'main'
+    }
+
+    stage('Build') {
+        echo "Building project..."
+        sh 'mvn clean package'
+    }
+
+    stage('Deploy') {
+        echo "Deploying application..."
+        sh 'echo Deployment successful!'
     }
 }
