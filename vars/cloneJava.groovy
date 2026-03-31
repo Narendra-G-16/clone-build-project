@@ -5,13 +5,14 @@ def call(Map config = [:]) {
         git url: config.repoUrl, branch: 'main'
     }
 
-    stage('Build') {
-        echo "Building project..."
-        sh 'mvn clean package'
+    stage('Docker Build') {
+        echo "Building Docker Image..."
+        sh 'docker build -t java-demo-app .'
     }
 
-    stage('Deploy') {
-        echo "Deploying application..."
-        sh 'echo Deployment successful!'
+    stage('Run Container') {
+        echo "Running Docker Container..."
+        sh 'docker run java-demo-app'
     }
+
 }
