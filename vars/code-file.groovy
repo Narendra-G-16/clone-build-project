@@ -1,5 +1,5 @@
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello from Jenkins Shared Library Project!");
+        System.out.println("Hello from Docker + Jenkins Pipeline!");
     }
 }
